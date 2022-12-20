@@ -11,12 +11,12 @@ Write a simple UNIX command interpreter.
 * Document guide: Everything you need to know to start coding your own shell concept page
 
 #### man or help:
-* ==sh (Run sh as well)==
+* sh (Run sh as well)
 
 ## Compilation Code
 > gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ___
 
 ## Authors
-### [Mallo Ezra C.](Ezra-Mallo@github.com)
-### [Ezeibekwe C. Emmanuel](Ezeibekweemma@github.com)
+### [Mallo Ezra C.](https://github.com/Ezra-Mallo)
+### [Ezeibekwe C. Emmanuel](https://github.com/Ezeibekweemma)
