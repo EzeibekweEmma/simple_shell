@@ -26,23 +26,7 @@ char *_getline(char *av)
 				continue;
 			}
 			if (buff != NULL)
-			{
-/**
- * 				copy_of_buff = strdup(buff);
-				token = strtok(copy_of_buff, delimeter);
-*				if (strcmp(token, "exit") == 0)
-				{
-					buff = NULL, free(buff);
-					copy_of_buff = NULL;
-					delimeter = NULL;
-					token = NULL;
-					return ("done");
-				}*/
 				_tokenize(av, buff);
-			/**
-			 * copy_of_buff = NULL;
-				token = NULL;*/
-			}
 		}
 		buff = NULL, free(buff);
 	}
