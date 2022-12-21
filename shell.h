@@ -10,13 +10,12 @@
 #include <signal.h>
 #include <stdlib.h>
 
-char *_getline(void);
-char *_tokenize(char *buff);
+char *_getline(char *av);
+char *_tokenize(char * av, char *buff);
+char *_check_stat_environ(char *av, char *buff, char **argv);
 char *_execve(char **argv);
-char *_check_stat_environ(char *buff, char **argv);
+
 struct stat st;
 extern char **environ;
-
-
 
 #endif

@@ -2,10 +2,11 @@
 
 /**
  * _tokenize - this is the prompt and getline function for simple shell
+ * @av: file name
  * @buff: environment variable
  * Return: pointer to the getline data
  */
-char *_tokenize(char *buff)
+char *_tokenize(char *av, char *buff)
 {
 	char *tokens, **argv = NULL, *delimeter = " \n";
 	int i = 0;
@@ -19,7 +20,7 @@ char *_tokenize(char *buff)
 		i++;
 	}
 	/*call stat_env function*/
-	_check_stat_environ(buff, argv);
+	_check_stat_environ(av, buff, argv);
 
 	tokens = NULL;
 	delimeter = NULL;

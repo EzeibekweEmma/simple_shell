@@ -2,12 +2,14 @@
 
 /**
  * _getline - this is the prompt and getline function for simple shell
+ * @av: file name
  * Return: pointer to the getline data
  */
-char *_getline(void)
+char *_getline(char *av)
 {
 	size_t n = 10;
-	char *buff = NULL, *copy_of_buff = NULL,  *token, *delimeter = " \n";
+	char *buff = NULL;
+/*, *copy_of_buff = NULL,  *token, *delimeter = " \n";*/
 
 	while (1)
 	{
@@ -24,21 +26,7 @@ char *_getline(void)
 				continue;
 			}
 			if (buff != NULL)
-			{
-				copy_of_buff = strdup(buff);
-				token = strtok(copy_of_buff, delimeter);
-				if (strcmp(token, "exit") == 0)
-				{
-					buff = NULL, free(buff);
-					copy_of_buff = NULL;
-					delimeter = NULL;
-					token = NULL;
-					return ("done");
-				}
-				_tokenize(buff);
-				copy_of_buff = NULL;
-				token = NULL;
-			}
+				_tokenize(av, buff);
 		}
 		buff = NULL, free(buff);
 	}
