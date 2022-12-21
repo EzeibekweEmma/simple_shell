@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 
 /**
  * _getline - this is the prompt and getline function for simple shell
@@ -15,7 +14,6 @@ char *_getline(void)
 		buff = malloc(sizeof(char) * n);
 		if (buff != NULL)
 		{
-			printf("[%d] [%d]\n", getppid(), getpid());
 			printf("ezra_emma_shell$ ");
 			if ((getline(&buff, &n, stdin)) == -1)
 				perror("Error with getline");

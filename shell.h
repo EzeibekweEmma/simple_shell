@@ -14,7 +14,7 @@ char *_getline(void);
 char *_tokenize(char *buff);
 char *_execve(char **argv);
 char *_check_stat_environ(char *buff, char **argv);
-
+struct stat st;
 extern char **environ;
 
 

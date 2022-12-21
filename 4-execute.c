@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 
 /**
  * _execve - this is the prompt and getline function for simple shell
@@ -19,7 +18,6 @@ char *_execve(char **argv)
 	}
 	if (child_pid == 0)
 	{
-		printf("[%d] [%d]\n", getppid(), getpid());
 		execve(argv[0], argv, NULL);
 		sleep(4);
 

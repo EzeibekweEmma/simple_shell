@@ -8,30 +8,23 @@
  * Return: pointer to the getline data
  */
 char *_check_stat_environ(char *buff, char **argv)
-
 {
 	int i = 0;
 	char *token = NULL, *key = "PATH", *path = NULL, **env_cpy = NULL;
-	struct stat st;
-	char flag = 0;
 
 	if (strlen(argv[0]) <= 1)
 		return ("incomplete");
-
 	if (argv[0][0] == '/' && stat(buff, &st) == 0)
 	{
 		_execve(argv);
-		flag = 1;
 		return ("done");
 	}
 	while (environ[i])
 		i++;
-
 	env_cpy = malloc(sizeof(char *) * i);
 	for (i = 0; environ[i]; i++)
 		env_cpy[i] = strdup(environ[i]);
-	env_cpy[i] = NULL;
-	i = 0;
+	env_cpy[i] = NULL, i = 0;
 	while (env_cpy[i])
 	{
 		token = strtok(env_cpy[i++], "=");
@@ -49,17 +42,11 @@ char *_check_stat_environ(char *buff, char **argv)
 		if (stat(path, &st) == 0)
 		{
 			argv[0] = strdup(path);
-			_execve(argv);
-
-			flag = 1;
-			env_cpy = NULL,  path = NULL;
+			_execve(argv),  env_cpy = NULL,  path = NULL;
 			break;
 		}
 		token = strtok(NULL, ":");
 	}
-	if (flag == 0)
-		printf("command not found");
-	env_cpy = NULL,  path = NULL;
-	free(env_cpy), free(path);
+	env_cpy = NULL,  path = NULL, free(env_cpy), free(path);
 	return ("done");
 }
